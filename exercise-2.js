@@ -7,6 +7,8 @@ const countWords = words => {
   return words.reduce((countingObject,word)=>{
      countingObject[word] = countingObject[word] || 0;
      countingObject[word]+=1;
+     // countingObject[word] ? countingObject[word]+=1 : countingObject[word] = 1;
+     // countingObject[word] = (countingObject[word] || 0) + 1;
      return countingObject;
   },{})
 };
