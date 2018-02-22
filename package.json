@@ -19,6 +19,15 @@
   },
   "homepage": "https://github.com/bridge-school/js-exercises#readme",
   "devDependencies": {
+<<<<<<< HEAD
     "jest": "^22.2.2"
+=======
+    "jest": "^22.1.4"
+  },
+  "main": "exercise-1.js",
+  "dependencies": {
+    "es6-promise": "^4.2.4",
+    "node-fetch": "^2.0.0"
+>>>>>>> f0c610e6021c90fa4af3fda46c04c8d7fba519f5
   }
 }
