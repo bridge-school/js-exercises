@@ -19,15 +19,10 @@ const myPromise = new Promise((resolve, reject) => {
   setTimeout(() => resolve(listOfWines), 3000);
 });
 
-const onSuccess = response => console.log(response.filter(item => item.type === 'Red'))
-
-
 const myFailedPromise = new Promise((resolve, reject) => {
   setTimeout(() => reject(" something is broken"), 3000);
 });
 
-const onReject = error => console.log("Oh no, the request failed because", error);
 
-
-myPromise.then(onSuccess).catch(onReject)
-myFailedPromise.then(onSuccess).catch(onReject)
+myPromise.then(response => console.log(response.filter(item => item.type === 'Red')))
+myFailedPromise.catch(error => console.log("Oh no, the request failed because", error))
