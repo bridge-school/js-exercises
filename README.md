@@ -1,4 +1,4 @@
-# JavaScript Exercises
+# JavaScript Exercises!!!
 
 Complete the exercises in this repo and push your solutions up to a branch (`firstname-lastname`).
 
