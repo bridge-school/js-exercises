@@ -18,22 +18,41 @@ const listOfWines = [
   
   const myPromise = new Promise((resolve, reject) => {
     // Your solution for #1 here
+    setTimeout(() => resolve(listOfWines), 3000);
   });
   
   const onSuccess = value => {
-    // Your solution here
+    console.log(value); 
+
+
+    // extra challenge A solution:
+      // value
+      //   .filter(wine => wine.type === 'Red')
+      //   .forEach(wine => console.log(wine)); 
   };
 
   // Use myPromise here with onSuccess
-
+  myPromise.then(onSuccess);
 
 
   const myFailedPromise = new Promise((resolve, reject) => {
     // Your solution for #3 here
+    setTimeout(() => reject('something is broken'), 3000);
   });
 
-  const onReject = value => {
-    // Your solution here
+  const onReject = error => {
+    console.log(`Oh no, the request failed because ${error}`);
   };
 
-  // use myFailedPromise here with onReject
+  myFailedPromise.catch(onReject);
+
+
+  // Extra challenge A & B combined together:
+
+  myPromise.then(
+    wines => {
+      console.log('my filtered wines: ');
+      wines
+        .filter(wine => wine.type === 'Red')
+        .forEach(wine => console.log(wine));
+  });
