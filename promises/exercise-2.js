@@ -13,7 +13,7 @@ const onReject = value => {
   console.log(value.message);
 };
 
-promise.then(err => onReject(err));
+promise.catch(err => onReject(err));
 
 
 //(node:23714) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): REJECTED!
