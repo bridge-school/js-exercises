@@ -15,10 +15,6 @@ const onResolve = value => {
 
 promise.then(onResolve);
 
-//
-// Promise.then(onResolve);
-
-
 // const wait = ms => new Promise(resolve => setTimeout(resolve, 300));
 //
 // wait().then(() => Promise.resolve().then(() => console.log('FULFILLED!')));
