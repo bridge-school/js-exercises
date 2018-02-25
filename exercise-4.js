@@ -13,7 +13,8 @@ const reduce = (array, fn, init) => {
   }
 
   // recursive case
-  return reduce(array.slice(1), fn, fn(init, array[0]));
+  // return reduce(array.slice(1), fn, fn(init, array[0])); // my way
+  return reduce(array, fn, fn(init, array.shift())); // another way
 };
 
 const sum = (acc, val) => acc + val;
