@@ -15,25 +15,34 @@ const listOfWines = [
      A. Update the onSuccess function so that takes the returned wines, filters the list to only include the red wines and then print that list 
      B. Refactor your code so that instead of seperate named callback functions 'onSuccess' and 'onReject', you write the functions inline */
   
+
   
   const myPromise = new Promise((resolve, reject) => {
     // Your solution for #1 here
+    setTimeout(() => {
+      resolve(listOfWines.filter(wine=>wine.type=="Red"));
+    }, 3000);    
   });
   
-  const onSuccess = value => {
-    // Your solution here
-  };
+  const onSuccess = value => console.log("Our red wines:",value);
 
   // Use myPromise here with onSuccess
 
-
+  myPromise.then(onSuccess);
 
   const myFailedPromise = new Promise((resolve, reject) => {
     // Your solution for #3 here
+    setTimeout(() => {
+      reject("something is broken");
+    }, 3000);   
   });
 
-  const onReject = value => {
-    // Your solution here
-  };
+  const onReject = value => console.log('Oh no, the request failed becasuse',value);
 
   // use myFailedPromise here with onReject
+
+  myFailedPromise.then(onSuccess,onReject);
+
+  // OR   myFailedPromise
+  //      .then(onSuccess)
+  //      .catch(onReject);

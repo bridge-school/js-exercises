@@ -4,9 +4,18 @@ require("es6-promise");
 // Create a function onReject to print error.message using console.log. Pass this function as a rejection handler to the then method of your promise.
 
 const promise = new Promise(function(resolve, reject) {
-  // Your solution here
+  setTimeout(() => {
+  	const error = new Error('REJECTED!')
+    reject(error);
+  }, 300);
 });
 
-const onReject = value => {
-  // Your solution here
+const onResolve = value => {
+  console.log("Yay!");
 };
+
+const onReject = error => {
+  console.log(error.message);
+};
+
+promise.then(onResolve,onReject);
