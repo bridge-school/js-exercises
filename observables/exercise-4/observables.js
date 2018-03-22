@@ -19,3 +19,7 @@ const clickStream = Observable.fromEvent(theButton, "click");
     If you click the button extra times before each 1000ms is up, we shouldn't see a generated dog.
 */
 
+clickStream
+  .throttle(ev => Rx.Observable.interval(1000))
+  .map((value, index) => index + 1)
+  .subscribe(val => console.log("Dog #", val))
