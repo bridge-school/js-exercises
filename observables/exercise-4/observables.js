@@ -3,6 +3,17 @@ const { Observable } = Rx;
 const theButton = document.getElementById("exercise-4");
 const clickStream = Observable.fromEvent(theButton, "click");
 
+const myObserver = {
+  next: console.log,
+  error: console.error,
+  complete: () => console.info('complete')
+};
+
+clickStream
+.map((val, index) => "Dog #" + (index + 1))
+.delaySubscription(1000)
+.subscribe(myObserver);
+
 /* 
   Exercise 4:
   We've created an Observable stream from the button's click event. Every time you click, you should get a dog. 

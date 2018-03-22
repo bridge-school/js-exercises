@@ -18,22 +18,30 @@ const listOfWines = [
   
   const myPromise = new Promise((resolve, reject) => {
     // Your solution for #1 here
+    setTimeout(() => {
+      resolve(listOfWines);
+    }, 3000);
   });
   
   const onSuccess = value => {
-    // Your solution here
+    console.log(value);
   };
 
   // Use myPromise here with onSuccess
-
+  myPromise.then(onSuccess);
 
 
   const myFailedPromise = new Promise((resolve, reject) => {
     // Your solution for #3 here
+    setTimeout(()=> {
+      reject('something is broken');
+    },3000);
+
   });
 
   const onReject = value => {
-    // Your solution here
+    console.log(value);
   };
 
   // use myFailedPromise here with onReject
+  myFailedPromise.catch(onReject);
