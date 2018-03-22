@@ -12,7 +12,10 @@ const flavours = [
 ];
 
 const transformStrings = array => {
-  // your solution here
+  const newArr = array.map((item)=>{
+    return item.split('').reverse().join('')
+  })
+  return newArr.filter(word=>word.length<=20);
 };
 
 console.log(transformStrings(flavours));
