@@ -13,4 +13,6 @@ const clickStream = Observable.fromEvent(theButton, "click");
     "Dog #1" after the first click, "Dog #2" after the second, and so on.
 */
 
-
+clickStream
+  .map((value, index) => `Dog #${index + 1}`)
+  .subscribe(dog => console.log(dog));

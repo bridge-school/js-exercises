@@ -17,3 +17,8 @@ const clickStream = Observable.fromEvent(theButton, "click");
     No output after the fourth click,
     "Dog #5" after the fith click, and so on.
 */
+
+clickStream
+  .map((value, index) => `Dog #${index + 1}`)
+  .filter((value, index) => index % 2 === 0)
+  .subscribe(dog => console.log(dog));
