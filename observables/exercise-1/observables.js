@@ -9,4 +9,4 @@ const clickStream = Observable.fromEvent(theButton, "click");
   Subscribe to the stream and print out the emitted value.
 */
 
-clickStream.subscribe(clickEvent => console.log('click event': clickEvent));
+clickStream.subscribe(clickEvent => console.log('click event: ', clickEvent));
