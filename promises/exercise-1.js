@@ -4,13 +4,14 @@ require('es6-promise');
 // Then, print the contents of the promise after it has been fulfilled by passing console.log to then.
 
 const promise = new Promise(function(resolve, reject) {
-  setTimeout(() => {
-    resolve('FULFILLED!');
-  }, 300);
+  setTimeout(() => resolve('FULFILLED'), 300);
 });
 
-const onResolve = data => {
-  console.log(data);
+const printWhenSuccessful = data => {
+  console.log('SUCCESS:', data);
 };
 
-promise.then(onResolve);
+promise.then(printWhenSuccessful);
+
+// promise.then((value) => printWhenSuccessful(value));
+
